@@ -1,21 +1,6 @@
 'use strict';
 const timeSetter = document.querySelector('.timeSetter');
-//const panel = document.querySelectorAll('.panel');
-//const panelArray = Array.from(panel)
-
-/*
-const hh = document.querySelectorAll('.hh');
-const hourArray = Array.from(hh)
-const mm = document.querySelectorAll('.mm');
-const minuteArray = Array.from(mm)
-*/
-
 let childArray = new Array;
-
-const hours = document.querySelector('#hour');
-const minutes = document.querySelector('#minute');
-const meridean = document.querySelector('#meridean');
-
 const add = document.createElement('div'),
   sub = document.createElement('div');
 
@@ -90,7 +75,7 @@ function addSub(input) {
   activity = input;
 
   //document.querySelector('.add')
-  add.addEventListener('click', (btn) => {
+  add.addEventListener('click', () => {
     getAdd(activity.children);
     hHeight = rect[0].height;
     activity.scrollBy(0, hHeight);
@@ -98,7 +83,7 @@ function addSub(input) {
   })
 
   //document.querySelector('.sub')
-  sub.addEventListener('click', (btn) => {
+  sub.addEventListener('click', () => {
     hHeight = rect[0].height;
     activity.scrollBy(0, -hHeight);
     hHeight += hHeight;
@@ -147,7 +132,7 @@ function getSub(obj) {
   }
 }
 
-done.addEventListener('click', (btn) => {
+done.addEventListener('click', () => {
   console.log(hourVal)
   alert(hourVal)
 })

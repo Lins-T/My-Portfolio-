@@ -3,20 +3,74 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet" type="text/css" media="all" >
-    <title>Form </title>
-  </head>
-  <body>
-    <form method="post" name="email-form" accept-charset="utf-8" netlify>
-      Email
-      <input type="email" name="email" id="email" placeholder="Enter Email"/>
-      <br />
-      name
-      <input type="text" name="text" id="text" placeholder="Enter name" />
-      <br />
-      <button type="submit">
-        Submit
-      </button>
-    </form>
+    <link href="miine.css" rel="stylesheet" type="text/css" media="all">
+  <script src="node_modules/moment/moment.js"></script>
+  <script src="demo.js" defer></script>
+  <title>Test run</title>
+<style>
+   
+  </style>
+</head>
+<body>
+    
+  <div class="timeSetter">
+    <p>Set due time</p>
+    
+    <section class="time">
+     
+      
+      <ul class="timePanel">
+        <li class="hourList">
+          <!---
+          <input tabindex="1" b type="number" name="hour" id="hour" class="panel" value="6" minlength="0"  maxlength="2"/>
+          -->
+          <ul tabindex="1" b type="number" name="hour" id="hour" class="panel">
+            <li class="hh timeItem">00</li>
+            <li class="hh timeItem">1</li>
+            <li class="hh timeItem">2</li>
+            
+            <li class="hh timeItem">3</li>
+            <li class="hh timeItem">4</li>
+            <li class="hh timeItem">5</li>
+            
+            <li class="hh timeItem">6</li>
+            <li class="hh timeItem">7</li>
+            <li class="hh timeItem">8</li>
+            
+            <li class="hh timeItem">9</li>
+            <li class="hh timeItem">10</li>
+            <li class="hh timeItem">11</li>
+          </ul>
+        </li>
+        <li class="hourList">
+          <!--
+          <input tabindex="2" type="number" name="minute" id="minute" class="panel" value="00" />
+          -->
+          <ul tabindex="2" type="number" name="minute" id="minute" class="panel">
+            <li class="mm timeItem">23</li>
+            <li class="mm timeItem">24</li>
+            <li class="mm timeItem">25</li>
+          </ul>
+        </li>
+        <li class="hourList">
+          <!--
+          <input tabindex="3"  type="text" name="meridean" id="meridean" class="panel" value="" />
+          -->
+          <ul tabindex="3"  type="text" name="meridean" id="meridean" class="panel">
+            <li class="timeItem">am</li>
+            <li class="timeItem">pm</li>
+          </ul>
+        </li>
+      </ul>
+     
+    </section>
+    
+    <section class="timeFoot">
+      <button type="submit dateClear">Clear</button>
+      <button type="submit dateCancel">cancel</button>
+      <button type="submit dateSet" class="set">set</button>
+    </section>
+  </div>
+  
   </body>
 </html>

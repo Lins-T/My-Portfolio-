@@ -1,6 +1,6 @@
 'use strict';
 const timeSetter = document.querySelector('.timeSetter');
-let childArray = new Array;
+let childArray = [];
 const add = document.createElement('div'),
   sub = document.createElement('div');
 
@@ -10,7 +10,7 @@ sub.innerHTML = '-';
 sub.classList.add('sub', 'controls')
 
 const done = document.querySelector('.set');
-const hourLi = document.querySelector('.hourList');
+const hours = document.querySelector('#hour');
 
 let hHeight = NaN;
 let activity = undefined

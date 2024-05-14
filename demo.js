@@ -40,7 +40,7 @@ let bolean = undefined;
 timeSetter.addEventListener('click', btn => {
   if (btn.target.id === 'hour') {
     //alert('hour')
-    //controls(btn.target)
+    controls(btn.target)
     let panel = btn.target
     panel.after(add)
     panel.before(sub)
@@ -49,7 +49,7 @@ timeSetter.addEventListener('click', btn => {
 
   if (btn.target.id === 'minute') {
    // alert('minute')
-    //controls(btn.target)
+    controls(btn.target)
     let panel = btn.target
     panel.after(add)
     panel.before(sub)

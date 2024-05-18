@@ -11,66 +11,85 @@
    
   </style>
 </head>
-<body>
-    
-  <div class="timeSetter">
-    <p>Set due time</p>
-    
-    <section class="time">
+<body class="body">
+
+ <button class="setTIme" popovertarget="timeSetter"> Time </button>  
+
+  <div class="timeSetter" id="timeSetter" popover="mandatory">
+   <ul class="timeInput">
+     <li class="hour input">
+       <input type="number" name="hour" id="hour" class="time timeBox editInputs" value="09" />
+     </li>
+     <li class="colon">:</li>
+     <li class="minute input">
+       <input type="number" name="minute" id="minute" class="time timeBox editInputs" value="00" min="0" max="60" />
+     </li>
+     <li class="meridean input">
+       <ul class="time meridean-Wrapper">
+         <li class="meridean-li active-meridean" data-name="am">am</li>
+         <li class="meridean-li" data-name="pm">pm</li>
+       </ul>
+     </li>
+   </ul>
+   
+   <div class="hourContainer">
+     <button class="controls sub subHour controlHour" >-H</button>
+     <ul class="hours">
+     </ul>
+     <button class="controls add addHour controlHour" >+H</button>
+   </div>
+   
+   <div class="minuteContainer">
+     <button class="controls sub subMin controlMin">-M</button>
+     <ul class="minutes">
      
-      
-      <ul class="timePanel">
-        <li class="hourList">
-          <!---
-          <input tabindex="1" b type="number" name="hour" id="hour" class="panel" value="6" minlength="0"  maxlength="2"/>
-          -->
-          <ul tabindex="1" b type="number" name="hour" id="hour" class="panel">
-            <li class="hh timeItem">00</li>
-            <li class="hh timeItem">1</li>
-            <li class="hh timeItem">2</li>
-            
-            <li class="hh timeItem">3</li>
-            <li class="hh timeItem">4</li>
-            <li class="hh timeItem">5</li>
-            
-            <li class="hh timeItem">6</li>
-            <li class="hh timeItem">7</li>
-            <li class="hh timeItem">8</li>
-            
-            <li class="hh timeItem">9</li>
-            <li class="hh timeItem">10</li>
-            <li class="hh timeItem">11</li>
-          </ul>
-        </li>
-        <li class="hourList">
-          <!--
-          <input tabindex="2" type="number" name="minute" id="minute" class="panel" value="00" />
-          -->
-          <ul tabindex="2" type="number" name="minute" id="minute" class="panel">
-            <li class="mm timeItem">23</li>
-            <li class="mm timeItem">24</li>
-            <li class="mm timeItem">25</li>
-          </ul>
-        </li>
-        <li class="hourList">
-          <!--
-          <input tabindex="3"  type="text" name="meridean" id="meridean" class="panel" value="" />
-          -->
-          <ul tabindex="3"  type="text" name="meridean" id="meridean" class="panel">
-            <li class="timeItem">am</li>
-            <li class="timeItem">pm</li>
-          </ul>
-        </li>
-      </ul>
-     
-    </section>
-    
-    <section class="timeFoot">
-      <button type="submit dateClear">Clear</button>
-      <button type="submit dateCancel">cancel</button>
-      <button type="submit dateSet" class="set">set</button>
-    </section>
+   </ul>
+     <button class="controls add addMin controlMin">+M</button>
+   </div>
+   
+   <div class="timeTool">
+     <button class="toolButton cancel">Cancel</button>
+     <button class="toolButton clear" type="reset">Clear</button>
+     <button class="toolButton set" type="submit" >Set</button>
+   </div>
   </div>
   
+  <!--Date container / setter -->
+  <div class="dateSetter">
+   <div class="calenderNav marg-B-end flexItem">
+     <div  class="months">
+        <button popovertarget="monthOption" class="activeMonth" value="May">
+        May
+       </button>
+        
+        <ul id="monthOption" class="monthDialog dialog" popover="auto"></ul>
+     </div>
+     
+     <div class="dateFormat">
+        <span class="ddd"></span>
+        <span class="MMM"></span>
+        <span class="DDD"></span>
+        <span class="YYY"></span>
+     </div>
+     
+     <!--
+     <ul class="navButtons flexItem">
+       <li><button class="button decrease" type="submit">-</button></li>
+       <li><button class="button increase" type="submit">+</button></li>
+     </ul>
+     -->
+     
+   </div>
+   
+    <ul class="week calender marg-B-end"></ul>
+    <ul class="day calender marg-B-end"></ul>
+     
+     <ul class="years ">
+       <li class="year activeYear">2024</li>
+       <li class="year">2025</li>
+       <li class="year">2026</li>
+     </ul>
+  </div>
+<button class="" popovertarget="monthOption">date</button>
   </body>
 </html>

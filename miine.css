@@ -1,110 +1,421 @@
+:root {
+  --yas: ;
+}
+
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  position: relative;
   user-select: none;
+  list-style: none;
 }
 
 body {
-  min-height: 100vh;
   display: grid;
   place-content: center;
+  font-size: 1rem;
+  min-height: 100svh;
 }
-
 
 .timeSetter {
   width: 300px;
-  min-height: 100px;
-  background: hsl(0, 0%, 0%);
-  color: white;
+  min-height: 200px;
   padding: 1rem;
+  background: hsl(218.7, 5.5%, 14.6%);
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
 }
 
-p {
-  font-size: 1.2em;
-  font-weight: 500;
+.timeSetter ul {
+  list-style: none;
+  display: flex;
+}
+
+.timeInput {
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-block-end: 2rem;
+}
+
+.input {
+  width: 50px;
+  position: relative;
+}
+
+.colon {
+  font-weight: 600;
+  font-size: 1.1em;
+  
 }
 
 .time {
-  margin-block: .8rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  max-width: 100%;
+  text-align: center;
+  padding-block: 0.5rem;
+  background-color: hsla(290, 4.6%, 0%, 0.797);
+  color: hsl(45deg, 100%, 100%);
+  font-weight: 500;
+  position: relative;
+  font-size: 1.09em;
 }
 
-.timePanel {
-  list-style: none;
-  display: flex;
-  align-content: center;
-  gap: 12px;
-}
-
-.hourList {
+.hour {
+  margin-inline: auto 0;
   position: relative;
 }
 
-.panel {
-  width: 60px;
-  height: 40px;
-  text-align: center;
-  font-size: 1.1em;
-  font-weight: 600;
-  outline: none;
-  border: none;
-  background-color: #151515;
-  color: white;
-  overflow: scroll;
-  gap: 2px;
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  position: relative;
-}
-
-.panel::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-}
-
-.timeItem {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  scroll-snap-align: center;
-}
-
-
-.add, .sub {
-  font-size: 1.5rem;
-  font-weight: 600;
-  background-color: #444444;
-  color: white;
-  width: 80%;
-  text-align: center;
-}
-
-.add {
+.hour::before {
+  content: 'hour';
   position: absolute;
   top: 150%;
   left: 50%;
   translate: -50% -50%;
+  z-index: 2;
+  color: inherit;
+  
+  font-weight: 500;
+  font-size: 0.8em;
 }
 
-
-.sub {
+.minute::before {
+  content: 'minute';
   position: absolute;
-  top:-50%;
+  top: 150%;
   left: 50%;
   translate: -50% -50%;
+  z-index: 2;
+  color: inherit;
+  
+  font-weight: 500;
+  font-size: 0.8em;
 }
 
-.time {
-  height: 120px;
+.meridean {
+  margin-inline: auto 0;
 }
 
-.timeFoot {
+.meridean-Wrapper {
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-block: 5px;
+  padding-inline: 10px;
+  background: transparent;
+  height: 70px;
+}
+
+.meridean-li {
+  transition: 200ms;
+  
+  color: hsl(290, 0%, 64.2%);
+}
+
+.active-meridean {
+  scale: 1.2;
+  background-color: black;
+  border-bottom: 4px solid hsl(200.9, 100%, 45.7%);
+  color: white;
+  padding-block: 4px;
+  padding-inline: 1px;
+  font-size: 0.75em;
+}
+
+
+.hours,
+.minutes {
+  gap: 5px;
+  overflow: scroll;
+  margin-block-end: 0.5em;
+  width: 70%;
+  margin-inline: auto;
+}
+
+.controls {
+  position: absolute;
+  top: 50%;
+  translate: 0% -50%;
+  width: 30px;
+  font-size: .8rem;
+  font-weight: 600;
+  padding-block: 0.5em;
+  background: black;
+  color: white;
+  border-radius: 5px;
+}
+
+.add {
+  right: 0;
+}
+
+
+.hh,
+.mm {
+  min-inline-size: 30px;
+  background-color: hsla(290, 4.6%, 0%, 0.47);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9em;
+  text-align: center;
+  padding-block: 0.5rem;
+  padding-block: 0.7rem;
+  transition: 500ms;
+  border-bottom: 4px solid transparent;
+}
+
+.hh:hover,
+.mm:hover {
+  background: black;
+}
+
+.default {
+  border-bottom: 4px solid hsl(200.9, 100%, 45.7%);
+}
+
+.timeTool {
+  margin-block-start: 1.5rem;
   display: flex;
+  gap: 12px;
+}
+
+.toolButton {
+  padding-block: .3rem;
+  padding-inline: .3rem;
+  color: hsl(200.9, 100%, 45.7%);
+  background: transparent;
+  font-size: 0.9em;
+}
+
+.toolButton:hover {
+  background: black;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.toolButton:active {
+  background: black;
+}
+
+.set {
+  margin-left: auto;
+  font-weight: 500;
+  font-size: 1em;
+  color: hsl(200.9, 100%, 53.2%);
+}
+
+.dateSetter {
+  width: 300px;
+  min-height: 200px;
+  padding-block: 1.5rem;
+  padding-inline: 1rem;
+  background: hsl(218.7, 7.6%, 11.7%);
+  border-radius: 0.3rem;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+.flexItem {
+  display: flex;
+}
+
+.marg-B-end {
+  margin-block-end: 10px;
+}
+
+.calenderNav {
+  color: white;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.months {
+  width: 50px;
+  text-align: center;
+  background-color: black;
+  position: relative;
+}
+
+/*
+.months::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: red;
+  z-index: 2;
+}
+*/
+
+button {
+  background-color: transparent;
+}
+
+.dialog {
+  background-color: black;
+  box-shadow: 0 15px 8px 2px black;
+  width: 100px;
+  height: 200px;
+  overflow: scroll;
+  position: absolute;
+  z-index: 2;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  transition: all 1s;
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  margin-inline-start: 1rem;
+}
+
+.dialog::popover {
+  color: red;
+}
+
+@starting-style {
+    .dialog {
+      height: 0;
+    }
+ }
+
+.monthOption {
+  font-size: 0.95em;
+  height: 50px;
+  margin-block-end: 0px;
+  background: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  border-bottom: 1px solid hsla(200.9, 100%, 45.7%, 1);
+}
+
+.activeMonth {
+  color: hsla(200.9, 100%, 45.7%, 1);
+  background-color: transparent;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  width: 100%;
+  height: 30px;
+}
+
+.dateFormat {
+  font-weight: 300;
+  font-size: 0.85em;
+}
+
+.navButtons {
+  margin-inline: auto 0;
+  min-width: 60px;
+  justify-content: space-between;
+}
+
+.button  {
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  color: white;
+  background: black;
+  border-radius: 100px;
+  box-shadow: 0 0px 8px  2px hsl(200.9, 100%, 45.7%);
+  transition: 200ms;
+}
+
+.button:active {
+  box-shadow: 0 0px 10px  1px hsla(200.9,100%,45.7%,0.417);
+}
+
+.calender {
+  display: grid;
+  grid-template-columns: repeat(7, 30px);
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+.calenderItem {
+  text-align: center;
+}
+
+.week {
+  font-weight: 600;
+  font-size: 0.85em;
+  color: hsl(200.9, 100%, 45.7%);
+}
+
+.day {
+  min-height: 20px;
+}
+
+.dayDate {
+  font-size: 0.93em;
+  height: fit-content;
+  background: black;
+  color: hsla(200.9, 2.6%, 85.2%, 1);
+  padding-block: 5px;
+  padding-inline: 4px;
+  transition: 100ms;
+  border: 2px solid transparent;
+  border-bottom: 4px solid hsla(200.9, 100%, 45.7%, 0.397);
+  z-index: 0;
+}
+
+.dayDate:nth-child(1) {
+  
+  grid-area: var(--yas);
+  width: fit-content;
+  justify-self: flex-end;
+}
+
+.dayDate:active,
+.active {
+  scale: 1.1;
+  border: 1px solid hsl(200.9, 100%, 45.7%);
+  border-bottom: 4px solid hsl(200.9, 100%, 45.7%);
+  color: white;
+}
+
+.dayDate:before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  translate: -50%;
+  width: 2px;
+  height: 20%;
+  background-color: currentColor;
+  z-index: 1;
+}
+
+.years {
+  
+  font-size: 0.75em;
+  margin-block-start: 2rem;
+}
+
+.year {
+  background-color: black;
+  letter-spacing: 0px;
+  color: hsla(0, 6.6%, 64.7%, 0.602);
+  padding-block: 5px 2px;
+  padding-inline: 4px;
+  width: fit-content;
+  border-bottom: 2px solid black;
+  display: inline;
+  margin-right: 1rem;
+  transition: 150ms;
+}
+
+.activeYear {
+  border-bottom: 4px solid hsla(200.9, 100%, 45.7%, 1);
+  font-size: 1.1em;
+  color: white;
 }
